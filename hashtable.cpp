@@ -15,7 +15,7 @@ typedef position hashTable[hashGroup];
 
 void init_Table(hashTable &table){
     for(int i = 0; i < hashGroup; i++){
-        table[i] = NULL;
+        table[i] = new Node();
     }
 }
 
@@ -46,13 +46,14 @@ void insertItem(dataType x, hashTable &table){
     int bucket;
     position p;
 
-    if(!isMember(x, table)){
-        bucket = hashFunction(x);
-        p = table[bucket];
-        table[bucket] = new Node;
-        table[bucket]->data = x;
-        table[bucket]->pNext = p;
-    }
+    // if(!isMember(x, table)){
+    //     bucket = hashFunction(x);
+    //     p = table[bucket];
+    //     table[bucket] = new Node();
+    //     table[bucket]->data = x;
+    //     table[bucket]->pNext = p;
+    //     p->pNext = NULL;
+    // }
 }
 
 void removeItem(dataType x, hashTable &table){
@@ -94,6 +95,8 @@ void traverse(hashTable table){
         cout << endl;
     }
 }
+
+
 
 int main(){
     hashTable HT;
