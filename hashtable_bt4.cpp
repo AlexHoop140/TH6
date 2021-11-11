@@ -1,5 +1,5 @@
 #include <iostream> 
-#define size 7
+#define size 9
 #define DELETED "== DEAD =="
 #define EMPTY "== AVAILABLE =="
 
@@ -17,9 +17,9 @@ void init_Table(HashTable &table){
 int hashFunction(elementType x){
     int sum;
     for(int i = 0; i < x.length(); i++){
-        sum = sum + (int)x[i];
+        sum = sum + x[i];
     }
-    return sum % size;
+    return (int)sum % size;
 }
 
 int locate(HashTable table, elementType x){
@@ -80,16 +80,18 @@ int main(){
     insert_Table(HT, "HIHI");
     insert_Table(HT, "ANHONHASEO");
     insert_Table(HT, "facebook");
-    insert_Table(HT, "gooogle");
+    insert_Table(HT, "google");
 	print_Table(HT);
 
-    delete_Table(HT, "gooogle");
+    delete_Table(HT, "google");
     delete_Table(HT, "HIHI");
 	print_Table(HT);
 
+
     insert_Table(HT, "unneeee");
-    // insert_Table(HT, "satoshi");
     insert_Table(HT, "moas");
+    // insert_Table(HT, "satoshi");
+
     print_Table(HT);
 }
 
