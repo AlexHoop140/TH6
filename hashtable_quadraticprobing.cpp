@@ -1,5 +1,5 @@
 #include <iostream> 
-#define size 7
+#define size 11
 #define DELETED -10000
 #define EMPTY -11000
 
@@ -58,10 +58,12 @@ void delete_Table(HashTable &table, elementType data){
 }
 
 void print_Table(HashTable table){
-    cout << "--- Print Table --- " << endl;
+    cout << "\n --- Print Table --- " << endl;
     for(int i = 0; i < size; i++){
         if(table[i] == DELETED)
             cout << "Bucket "<< i << ": " << "DELETED" << endl;
+        else if(table[i] == EMPTY)
+        	cout << "Bucket "<< i << ": " << "EMPTY" << endl;
         else
             cout << "Bucket "<< i << ": " << table[i] << endl;
     }
@@ -86,7 +88,7 @@ int main(){
     print_Table(HT);
 
     insert_Table(HT, 12);
-    insert_Table(HT, 9);
+    insert_Table(HT, 432);
     print_Table(HT);
 }
 
